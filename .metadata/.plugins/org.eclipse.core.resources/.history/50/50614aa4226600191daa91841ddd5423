@@ -1,9 +1,0 @@
-package com.gmail.a.a.kravchenko.exception;
-
-public class TriangleIllegalArgumentException extends Exception {
-
-	@Override
-	public String getMessage() {
-		return "Was input illegal argument for triangle construction";
-	}
-}
