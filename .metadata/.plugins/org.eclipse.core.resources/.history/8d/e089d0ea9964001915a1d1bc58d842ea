@@ -1,0 +1,90 @@
+package com.gmail.a.a.kravchenko;
+
+import com.gmail.a.a.kravchenko.exception.TriangleIllegalArgumentException;
+
+public class Triangle extends Shape {
+	private Point pointA;
+	private Point pointB;
+	private Point pointC;
+
+	public Triangle(Point pointA, Point pointB, Point pointC) throws TriangleIllegalArgumentException {
+		double sideAB = pointA.getLeinght(pointB);
+		double sideAC = pointA.getLeinght(pointC);
+		double sideBC = pointB.getLeinght(pointC);
+		if ((sideAB > (sideAC + sideBC)) || (sideAC > (sideAB + sideBC)) || (sideBC > (sideAB + sideAC))) {
+			throw new TriangleIllegalArgumentException();
+		} else {
+			this.pointA = pointA;
+			this.pointB = pointB;
+			this.pointC = pointC;
+		}
+	}
+
+	public Triangle(Point[] points) throws TriangleIllegalArgumentException {
+		if ((getSideAB() > (getSideAC() + getSideBC())) || (getSideAC() > (getSideAB() + getSideBC()))
+				|| (getSideBC() > (getSideAC() + getSideAB()))) {
+			throw new TriangleIllegalArgumentException();
+		} else {
+			this.pointA = points[0];
+			this.pointB = points[1];
+			this.pointC = points[2];
+		}
+	}
+
+	public Triangle() {
+		super();
+	}
+
+	public Point getPointA() {
+		return pointA;
+	}
+
+	public void setPointA(Point pointA) {
+		this.pointA = pointA;
+	}
+
+	public Point getPointB() {
+		return pointB;
+	}
+
+	public void setPointB(Point pointB) {
+		this.pointB = pointB;
+	}
+
+	public Point getPointC() {
+		return pointC;
+	}
+
+	public void setPointC(Point pointC) {
+		this.pointC = pointC;
+	}
+
+	@Override
+	public String toString() {
+		return "Triangle [pointA=" + pointA + ", pointB=" + pointB + ", pointC=" + pointC + "]";
+	}
+
+	public double getSideAB() {
+		return pointA.getLeinght(pointB);
+	}
+
+	public double getSideAC() {
+		return pointA.getLeinght(pointC);
+	}
+
+	public double getSideBC() {
+		return pointB.getLeinght(pointC);
+	}
+
+	public double getPerimetr() {
+		return getSideAB() + getSideAC() + getSideBC();
+	}
+
+	public double getArea() {
+		double semiPerimetr;
+		semiPerimetr = getPerimetr() / 2;
+		return Math.sqrt(semiPerimetr * (semiPerimetr - getSideAB()) * (semiPerimetr - getSideAC())
+				* (semiPerimetr - getSideBC()));
+	}
+
+}

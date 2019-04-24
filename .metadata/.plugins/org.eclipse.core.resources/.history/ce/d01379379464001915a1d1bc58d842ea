@@ -1,0 +1,20 @@
+package com.gmail.a.a.kravchenko;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Point centrePoint = new Point(0, 0);
+		Point circlePoint = new Point(0, 0);
+		Circle oneCircle = new Circle(centrePoint, circlePoint);
+		System.out.println(oneCircle.getRadius());
+		System.out.println(oneCircle.getPerimetr());
+		System.out.println(oneCircle.getArea());
+
+//		Point pointA = new Point(0, 0);
+//		Point pointB = new Point(0, 0);
+//		Point pointC = new Point(5, 5);
+//		Triangle oneTriangle = new Triangle(pointA, pointB, pointC);
+
+	}
+
+}

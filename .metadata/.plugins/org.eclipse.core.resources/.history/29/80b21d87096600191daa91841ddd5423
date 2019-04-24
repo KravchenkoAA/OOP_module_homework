@@ -1,0 +1,59 @@
+package com.gmail.a.a.kravchenko;
+
+public class Circle extends Shape {
+	private Point centrePoint;
+	private Point circlePoint;
+
+	public Circle(Point centrePoint, Point circlePoint) {
+		super();
+		this.centrePoint = centrePoint;
+		this.circlePoint = circlePoint;
+	}
+
+	public Circle() {
+		super();
+	}
+
+	public Point getCentrePoint() {
+		return centrePoint;
+	}
+
+	public void setCentrePoint(Point centrePoint) {
+		this.centrePoint = centrePoint;
+	}
+
+	public Point getCirclePoint() {
+		return circlePoint;
+	}
+
+	public void setCirclePoint(Point circlePoint) {
+		this.circlePoint = circlePoint;
+	}
+
+	@Override
+	public String toString() {
+		return "Square [centrePoint=" + centrePoint + ", circlePoint=" + circlePoint + "]";
+	}
+
+	public double getRadius() {
+		return centrePoint.getLeinght(circlePoint);
+	}
+
+	public double getPerimetr() {
+		if (getRadius() == 0) {
+			System.out.println("Coordinates centre and on circle are duplicated");
+			return 0;
+		} else {
+			return 2 * Math.PI * getRadius();
+		}
+	}
+
+	public double getArea() {
+		if (getRadius() == 0) {
+			System.out.println("Coordinates centre and on circle are duplicated");
+			return 0;
+		} else {
+			return Math.PI * getRadius() * getRadius();
+		}
+	}
+}

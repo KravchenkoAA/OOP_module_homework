@@ -1,0 +1,11 @@
+package com.gmail.a.a.kravchenko;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Point onePoint = new Point(0, 0);
+		Point twoPoint = new Point(5, 5);
+		System.out.println(onePoint.getLeinght(twoPoint));
+	}
+
+}

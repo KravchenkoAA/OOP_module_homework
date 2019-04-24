@@ -1,0 +1,14 @@
+package com.gmail.a.a.kravchenko;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Point centrePoint = new Point(0, 0);
+		Point circlePoint = new Point(5, 5);
+		Circle oneCircle = new Circle(centrePoint, circlePoint);
+		System.out.println(oneCircle.getRadius());
+		System.out.println(oneCircle.getPerimetr());
+		System.out.println(oneCircle.getArea());
+	}
+
+}

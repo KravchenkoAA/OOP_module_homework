@@ -1,0 +1,92 @@
+package com.gmail.a.a.kravchenko;
+
+public class Tetragon extends Shape {
+	private Point pointA;
+	private Point pointB;
+	private Point pointC;
+	private Point pointD;
+
+	public Tetragon(Point pointA, Point pointB, Point pointC, Point pointD) {
+		super();
+		this.name = "Tetragon";
+		this.pointA = pointA;
+		this.pointB = pointB;
+		this.pointC = pointC;
+		this.pointD = pointD;
+	}
+
+	public Tetragon() {
+		super();
+		this.name = "Tetragon";
+	}
+
+	public Point getPointA() {
+		return pointA;
+	}
+
+	public void setPointA(Point pointA) {
+		this.pointA = pointA;
+	}
+
+	public Point getPointB() {
+		return pointB;
+	}
+
+	public void setPointB(Point pointB) {
+		this.pointB = pointB;
+	}
+
+	public Point getPointC() {
+		return pointC;
+	}
+
+	public void setPointC(Point pointC) {
+		this.pointC = pointC;
+	}
+
+	public Point getPointD() {
+		return pointD;
+	}
+
+	public void setPointD(Point pointD) {
+		this.pointD = pointD;
+	}
+
+	@Override
+	public String toString() {
+		return "Tetragon [pointA=" + pointA + ", pointB=" + pointB + ", pointC=" + pointC + ", pointD=" + pointD + "]";
+	}
+
+	public double getSideAB() {
+		return pointA.getLeinght(pointB);
+	}
+
+	public double getSideAC() {
+		return pointA.getLeinght(pointC);
+	}
+
+	public double getSideBC() {
+		return pointB.getLeinght(pointC);
+	}
+
+	public double getSideCD() {
+		return pointC.getLeinght(pointD);
+	}
+
+	@Override
+	double getPerimetr() {
+		return getSideAB() + getSideBC() + getSideAC() + getSideCD();
+	}
+
+	@Override
+	double getArea() {
+		if (getSideAB() == 0 || getSideAC() == 0 || getSideBC() == 0 || getSideCD() == 0) {
+			return 0;
+		}
+		double semiPerimetr;
+		semiPerimetr = getPerimetr() / 2;
+		return Math.sqrt((semiPerimetr - getSideAB()) * (semiPerimetr - getSideAC()) * (semiPerimetr - getSideBC())
+				* (semiPerimetr - getSideCD()));
+	}
+
+}
